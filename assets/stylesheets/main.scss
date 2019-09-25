@@ -1,0 +1,11 @@
+@import './global/colors';
+@import './global/sizing';
+@import './bulma-0.7.5/bulma.sass';
+@import './search.scss';
+@import './page-content.scss';
+@import './navbar.scss';
+@import './fonts.scss';
+
+body {
+  font-family: 'News Cycle', sans-serif;
+}
