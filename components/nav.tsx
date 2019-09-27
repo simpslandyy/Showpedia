@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import content from '../content/cms_content.md';
 
 interface NavProps {
   // switch up whats on the right hand side of gthe nav
@@ -9,18 +10,19 @@ interface NavProps {
 }
 
 const Nav: React.FunctionComponent<NavProps> = (props) => {
+  const { attributes: { nav_links, logo }} = content; 
   return (
     <nav className="navbar is-light is-transparent" role="navigation">
       <div className="navbar-brand">
         <a className="navbar-item">
-          <img className="navbar-logo" src="https://bulma.io/images/bulma-logo.png"></img>
+          <img className="navbar-logo" src={logo}></img>
         </a>
       </div>
       <div className="navbar-menu">
         <div className="navbar-start">
-          <a className="navbar-item">About Me</a>
-          <a className="navbar-item" href="https://github.com/simpslandyy" target="_blank">GitHub</a>
-          <a className="navbar-item">My Top 10</a>
+          { nav_links.map((link: { label: string, url: string }, idx: number) => 
+            <a className="navbar-item" href={link.url} key={`${link.label}_${idx}`}> {link.label} </a>
+          )}
         </div>
         <div className="navbar-end">
           {props.children}

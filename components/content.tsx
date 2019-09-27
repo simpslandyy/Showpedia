@@ -1,4 +1,3 @@
-import "./content-stuff.scss"
 import React from 'react'
 
 interface IShow {
@@ -29,7 +28,7 @@ interface IList {
 }
 
 interface IProps {
-  search_results?: Array<{show: object}>;
+  search_results: any
 }
 
 const ListItem:React.FunctionComponent<IList> = (props) => (
@@ -47,7 +46,7 @@ const ListItem:React.FunctionComponent<IList> = (props) => (
 
 class Content extends React.Component<IProps, {}> {
   public render () {
-    const search_results = this.props.search_results ?  this.props.search_results : [];
+    const { search_results } = this.props;
     // const { search_results } = this.props;
     return (
       <div className="container">

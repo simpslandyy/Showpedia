@@ -6,6 +6,6 @@ const mapStateToProps = (state: IState) => {
   return {search_results: state.search_results};
 }
 
-const ContentContainer = connect(mapStateToProps, null)(Content);
+const ContentContainer = connect(null, null)(Content);
 
 export default ContentContainer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Home from '../containers/homepage';
+import Homepage from '../containers/homepage';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga'
 import reducer from '../store/reducer';
@@ -15,11 +15,9 @@ saga.run(allSagas);
 
 store.subscribe(() => console.log(store.getState()));
 
-import * as action from '../store/actions'
-
 const Index = () => (
   <Provider store={store}>
-    <Home />
+    <Homepage />
   </Provider>
 )
 
