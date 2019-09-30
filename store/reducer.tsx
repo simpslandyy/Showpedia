@@ -1,5 +1,6 @@
 import * as constant from './constants';
 import { Reducer } from 'redux';
+import Router from "next/router";
 
 export interface IState {
   search_results: Array<object> | [];
@@ -25,6 +26,7 @@ const reducer: Reducer<IState> = (
       let search_fetched = {...state}
       search_fetched.search_results = payload.data;
       search_fetched.search_query = "";
+      Router.push('/search_results')
       return search_fetched;
     
     default:

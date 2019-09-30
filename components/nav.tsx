@@ -14,9 +14,11 @@ const Nav: React.FunctionComponent<NavProps> = (props) => {
   return (
     <nav className="navbar is-light is-transparent" role="navigation">
       <div className="navbar-brand">
-        <a className="navbar-item">
-          <img className="navbar-logo" src={logo}></img>
-        </a>
+        <Link href="/">
+          <a className="navbar-item">
+            <img className="navbar-logo" src={logo}></img>
+          </a>
+        </Link>
       </div>
       <div className="navbar-menu">
         <div className="navbar-start">

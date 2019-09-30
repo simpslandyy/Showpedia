@@ -1,8 +1,19 @@
 import React from 'react';
 import content from '../content/cms_content.md';
 import Layout from '../components/layout';
+import { IState } from '../store/reducer';
+import { connect } from 'react-redux';
+import  Router  from 'next/router';
 
-class Homepage extends React.Component {
+const mapStateToProps = (state: IState) => {
+  return { has_results: state.search_results.length > 0 }
+}
+
+interface IProps {
+  has_results: boolean
+}
+
+class Homepage extends React.Component<IProps, {}> {
   render () {
     const { attributes: { title, subtitle } } = content;
     return (
@@ -17,6 +28,7 @@ class Homepage extends React.Component {
     )
   }
 }
+const HomepageContainer = connect(mapStateToProps)(Homepage);
 
-export default Homepage;
+export default HomepageContainer;
 
